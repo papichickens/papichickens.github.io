@@ -2,13 +2,26 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Me identifier
-<https://github.ugent.be/falves/falves.github.io/data.ttl#me> a myvocab:Person;
+<#me> a myvocab:Person;
   myvocab:ofAge "22"^^xsd:integer ;
   myvocab:fullName "Francisco Pimentel Alves" ;
   myvocab:firstName "Francisco" ;
   myvocab:lastName "Alves" ;
-  myvocab:studiesAt <https://github.ugent.be/falves/falves.github.io/data.ttl#ugent> .
+  myvocab:hasOccupation <#student> .
 
 # University identifier
-<https://github.ugent.be/falves/falves.github.io/data.ttl#ugent> a myvocab:University ;
+<#ugent> a myvocab:University ;
   myvocab:name "Ghent University" .
+
+# Occupation indentifier
+<#student> a myvocab:StudentRole ;
+  myvocab:name "student" ;
+  myvocab:yearOfStudy "5" ;
+  myvocab:studyingCourse <#course> ;
+  myvocab:studiesAt <#ugent> .
+
+# Course Identifier
+<#course> a myvocab:Course ;
+  myvocab:name "Computer Science and Engineering" ;
+  myvocab:courseLevel "Masters'" .
+  

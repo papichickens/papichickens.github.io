@@ -2,48 +2,99 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix : <https://github.com/papichickens/papichickens.github.io/vocab.ttl#> .
 
 :Person a rdfs:Class ;
-    rdfs:label "Person" ;
-    rdfs:comment "A human being used in my personal RDF dataset." .
+    rdfs:label "Person"@en ;
+    rdfs:comment "A human being used in my personal RDF dataset."@en .
 
 :Organization a rdfs:Class ;
-    rdfs:label "Organization" ;
-    rdfs:comment "An organization" .
+    rdfs:label "Organization"@en ;
+    rdfs:comment "An organization"@en .
 
 :University a rdfs:Class ;
-    rdfs:label "University" ;
-    rdfs:comment "An institution of higher education and research." ;
-    rdfs:subClassOf :Organization. # doubt this is the correct utilization but anyways
+    rdfs:label "University"@en ;
+    rdfs:comment "A high-level educational institution in which students study for degrees and academic research is done."@en ;
+    rdfs:subClassOf :Organization . # doubt this is the correct utilization but anyways
+
+:Occupation a rdfs:Class ;
+    rdfs:label "Occupation"@en ;
+    rdfs:comment "A person's role in a profession"@en ;
+
+:StudentRole a rdfs:Class;
+    rdfs:label "idk"@en ;
+    rdfs:comment "idk"@en ;
+    rdfs:subClassOf :Occupation .
+
+:Course a rdfs:Class ;
+    rdfs:label "idk"@en ;
+    rdfs:comment "idk"@en ;
+    # rdfs:domain :University
+    
 
 
+# Person Properties
 :ofAge a rdf:Property ;
-    rdfs:label "of age" ;
-    rdfs:comment "Current age of a person in years." ;
+    rdfs:label "of age"@en ;
+    rdfs:comment "Current age of a person in years."@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:integer .
 
-:name a rdf:Property;
-    rdfs:label "name" ;
+:name a rdf:Property ;
+    rdfs:label "name"@en ;
+    rdfs:comment "The name of an entity."@en ;
+    rdfs:domain rdfs:Resource ;
     rdfs:range xsd:string .
 
-:firstName a rdf:Property;
-    rdfs:label "first name" ;
+:firstName a rdf:Property ;
+    rdfs:label "First name"@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string .
 
-:fullName a rdf:Property;
-    rdfs:label "full name" ;
+:fullName a rdf:Property ;
+    rdfs:label "full name"@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string .
 
-:lastName a rdf:Property;
-    rdfs:label "last name" ;
+:lastName a rdf:Property ;
+    rdfs:label "Last name"@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string .
 
+:email a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment ""@en ;
+    rdfs:Person
+
+# University/Student Properties
 :studiesAt a rdf:Property ;
-    rdfs:label "The University where a Person currently studies at" ;
+    rdfs:label "The University where a Person currently studies at"@en ;
+    rdfs:comment ""@en ;
     rdfs:domain :Person ;
     rdfs:range :University .
+
+:hasOccupation a rdf:Property ;
+    rdfs:label "has occupation"@en ;
+    rdfs:comment "Relates a Person to their role/profession/occupation"@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Occupation .
+
+:yearOfStudy a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment "relates"@en ;
+    rdfs:domain :StudentRole ;
+    rdfs:range xsd:integer .
+
+:studyingCourse a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment "relates"@en ;
+    rdfs:domain :StudentRole
+    rdfs:range :Course
+
+:courseLevel a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment "relates"@en ;
+    rdfs:domain :course
+    rdfs:range xsd:string
+
