@@ -2,7 +2,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix : <https://github.com/papichickens/papichickens.github.io/vocab.ttl#> .
 
 :Person a rdfs:Class ;
@@ -27,12 +26,15 @@
     rdfs:comment "idk"@en ;
     rdfs:subClassOf :Occupation .
 
-:Course a rdfs:Class ;
+:ProfessorRole a rdfs:Class;
     rdfs:label "idk"@en ;
     rdfs:comment "idk"@en ;
-    # rdfs:domain :University
-    
+    rdfs:subClassOf :Occupation .
 
+:Course a rdfs:Class ;
+    rdfs:label "idk"@en ;
+    rdfs:comment "idk"@en .
+    
 
 # Person Properties
 :ofAge a rdf:Property ;
@@ -44,6 +46,12 @@
 :name a rdf:Property ;
     rdfs:label "name"@en ;
     rdfs:comment "The name of an entity."@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
+:email a rdf:Property ;
+    rdfs:label "email"@en ;
+    rdfs:comment ""@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range xsd:string .
 
@@ -63,15 +71,35 @@
     rdfs:range xsd:string .
 
 :email a rdf:Property ;
-    rdfs:label ""@en ;
+    rdfs:label "email"@en ;
     rdfs:comment ""@en ;
     rdfs:Person
+
+:knows a rdf:Property ;
+    rdfs:label "knows"@en ;
+    rdfs:comment "A Person knows this other Person"@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+# still in regards to Prof. Pieter Colpaert's comments around my punctuality :)
+:usuallyOnTime a rdf:Property ;
+    rdfs:label "usually on time"@en ;
+    rdfs:comment "Indicates whether a person is generally punctual for appointments or classes."@en ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:boolean .
+    
 
 # University/Student Properties
 :studiesAt a rdf:Property ;
     rdfs:label "The University where a Person currently studies at"@en ;
     rdfs:comment ""@en ;
-    rdfs:domain :Person ;
+    rdfs:domain :StudentRole ;
+    rdfs:range :University .
+
+:teachesAt a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment ""@en ;
+    rdfs:domain :ProfessorRole ;
     rdfs:range :University .
 
 :hasOccupation a rdf:Property ;
@@ -89,12 +117,30 @@
 :studyingCourse a rdf:Property ;
     rdfs:label ""@en ;
     rdfs:comment "relates"@en ;
-    rdfs:domain :StudentRole
-    rdfs:range :Course
+    rdfs:domain :StudentRole ;
+    rdfs:range :Course .
+
+:teachesCourse a rdf:Property ;
+    rdfs:label ""@en ;
+    rdfs:comment "relates"@en ;
+    rdfs:domain :ProfessorRole ;
+    rdfs:range :Course .
 
 :courseLevel a rdf:Property ;
     rdfs:label ""@en ;
     rdfs:comment "relates"@en ;
-    rdfs:domain :course
-    rdfs:range xsd:string
+    rdfs:domain :course ;
+    rdfs:range xsd:string .
+
+# Hobbies
+
+:Hobby a rdf:Class ;
+    rdfs:label "hobby"@en ;
+    rdfs:comment "hobby"@en .
+
+:hasHobby a rdf:Class ;
+    rdfs:label "has hobby"@en ;
+    rdfs:comment "has hobby"@en ;
+    rdfs:domain :Person ;
+    rdfs:range :Hobby ;
 

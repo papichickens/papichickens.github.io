@@ -7,21 +7,57 @@
   myvocab:fullName "Francisco Pimentel Alves" ;
   myvocab:firstName "Francisco" ;
   myvocab:lastName "Alves" ;
-  myvocab:hasOccupation <#student> .
+  myvocab:knows <#pieter_colpaert> , <#ben_de_meester> ;
+  myvocab:hasHobby <#football> , <#guitar> ;
+  myvocab:hasOccupation <#studentRole> ;
+  # in regards to Prof. Pieter Colpaert's current comments around my punctuality :)
+  myvocab:usuallyOnTime true .
 
 # University identifier
 <#ugent> a myvocab:University ;
   myvocab:name "Ghent University" .
 
 # Occupation indentifier
-<#student> a myvocab:StudentRole ;
+<#studentRole> a myvocab:StudentRole ;
   myvocab:name "student" ;
   myvocab:yearOfStudy "5" ;
   myvocab:studyingCourse <#course> ;
   myvocab:studiesAt <#ugent> .
+
+<#professor> a myvocab:ProfessorRole ;
+  myvocab:name "professor" ;
+  myvocab:teachesCourse <#course> ;
+  myvocab:teachesAt <#ugent> .
 
 # Course Identifier
 <#course> a myvocab:Course ;
   myvocab:name "Computer Science and Engineering" ;
   myvocab:courseLevel "Masters'" .
   
+# Professors Identifier
+<#pieter_colpaert> a myvocab:Person ;
+  myvocab:fullName "prof. dr. Pieter Colpaert" ;
+  myvocab:firstName "Pieter" ;
+  myvocab:lastName "Colpaert" ;
+  myvocab:email "pieter.colpaert@ugent.be" ;
+  myvocab:hasOccupation <#professor> .
+
+<#ben_de_meester> a myvocab:Person ;
+  myvocab:fullName "dr. ir. Ben De Meester" ;
+  myvocab:firstName "Ben" ;
+  myvocab:lastName "de Meester" ;
+  myvocab:email "ben.demeester@UGent.be" ;
+  myvocab:hasOccupation <#professor> .
+
+<#football> a myvocab:Hobby ;
+  rdfs:name "Football" ;
+  rdfs:comment "Watching and playing football" .
+
+<#guitar> a myvocab:Hobby ;
+  rdfs:name "Guitar" ;
+  rdfs:comment "Playing guitar" .
+
+
+#   # in regards to Prof. Pieter Colpaert's comments around my punctuality :)
+#   ex:usuallyLateBy "00:15:00"^^xsd:time ;
+#   schema:knows ex:pieter_colpaert , ex:ben_de_meester .
