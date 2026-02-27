@@ -1,0 +1,49 @@
+@base <https://github.com/papichickens/papichickens.github.io/vocab.ttl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <https://github.com/papichickens/papichickens.github.io/vocab.ttl#> .
+
+:Person a rdfs:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human being used in my personal RDF dataset." .
+
+:Organization a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization" .
+
+:University a rdfs:Class ;
+    rdfs:label "University" ;
+    rdfs:comment "An institution of higher education and research." ;
+    rdfs:subClassOf :Organization. # doubt this is the correct utilization but anyways
+
+
+:ofAge a rdf:Property ;
+    rdfs:label "of age" ;
+    rdfs:comment "Current age of a person in years." ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer .
+
+:name a rdf:Property;
+    rdfs:label "name" ;
+    rdfs:range xsd:string .
+
+:firstName a rdf:Property;
+    rdfs:label "first name" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:fullName a rdf:Property;
+    rdfs:label "full name" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:lastName a rdf:Property;
+    rdfs:label "last name" ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string .
+
+:studiesAt a rdf:Property ;
+    rdfs:label "The University where a Person currently studies at" ;
+    rdfs:domain :Person ;
+    rdfs:range :University .
