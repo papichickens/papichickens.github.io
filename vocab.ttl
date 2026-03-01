@@ -19,7 +19,7 @@
 
 :Occupation a rdfs:Class ;
     rdfs:label "Occupation"@en ;
-    rdfs:comment "A person's role in a profession"@en ;
+    rdfs:comment "A person's role in a profession"@en .
 
 :StudentRole a rdfs:Class;
     rdfs:label "idk"@en ;
@@ -144,5 +144,5 @@
     rdfs:label "has hobby"@en ;
     rdfs:comment "This Person has this hobby"@en ;
     rdfs:domain :Person ;
-    rdfs:range :Hobby ;
+    rdfs:range :Hobby .
 
