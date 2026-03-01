@@ -50,14 +50,10 @@
   myvocab:hasOccupation <#professor> .
 
 <#football> a myvocab:Hobby ;
-  rdfs:name "Football" ;
-  rdfs:comment "Watching and playing football" .
+  myvocab: "Football" ;
+  myvocab:comment "Watching and playing football" .
 
 <#guitar> a myvocab:Hobby ;
-  rdfs:name "Guitar" ;
-  rdfs:comment "Playing guitar" .
+  myvocab:name "Guitar" ;
+  myvocab:comment "Playing guitar" .
 
-
-#   # in regards to Prof. Pieter Colpaert's comments around my punctuality :)
-#   ex:usuallyLateBy "00:15:00"^^xsd:time ;
-#   schema:knows ex:pieter_colpaert , ex:ben_de_meester .

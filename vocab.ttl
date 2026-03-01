@@ -36,18 +36,25 @@
     rdfs:comment "idk"@en .
     
 
+# Misc
+:name a rdf:Property ;
+    rdfs:label "name"@en ;
+    rdfs:comment "The name of an entity."@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
+:comment a rdf:Property ;
+    rdfs:label "comment"@en ;
+    rdfs:comment "A description of the subject resource."@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
 # Person Properties
 :ofAge a rdf:Property ;
     rdfs:label "of age"@en ;
     rdfs:comment "Current age of a person in years."@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:integer .
-
-:name a rdf:Property ;
-    rdfs:label "name"@en ;
-    rdfs:comment "The name of an entity."@en ;
-    rdfs:domain rdfs:Resource ;
-    rdfs:range xsd:string .
 
 :email a rdf:Property ;
     rdfs:label "email"@en ;
@@ -69,11 +76,6 @@
     rdfs:label "Last name"@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string .
-
-:email a rdf:Property ;
-    rdfs:label "email"@en ;
-    rdfs:comment ""@en ;
-    rdfs:Person
 
 :knows a rdf:Property ;
     rdfs:label "knows"@en ;
@@ -140,7 +142,7 @@
 
 :hasHobby a rdf:Class ;
     rdfs:label "has hobby"@en ;
-    rdfs:comment "has hobby"@en ;
+    rdfs:comment "This Person has this hobby"@en ;
     rdfs:domain :Person ;
     rdfs:range :Hobby ;
 
