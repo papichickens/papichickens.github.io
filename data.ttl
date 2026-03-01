@@ -50,7 +50,7 @@
   myvocab:hasOccupation <#professor> .
 
 <#football> a myvocab:Hobby ;
-  myvocab: "Football" ;
+  myvocab:name "Football" ;
   myvocab:comment "Watching and playing football" .
 
 <#guitar> a myvocab:Hobby ;
