@@ -20,19 +20,19 @@
     rdfs:label "Occupation"@en ;
     rdfs:comment "A person's role in a profession"@en .
 
-:StudentRole a rdfs:Class;
-    rdfs:label "idk"@en ;
-    rdfs:comment "idk"@en ;
+:StudentRole a rdfs:Class ;
+    rdfs:label "Student role"@en ;
+    rdfs:comment "A role representing a person acting as a student."@en ;
     rdfs:subClassOf :Occupation .
 
-:ProfessorRole a rdfs:Class;
-    rdfs:label "idk"@en ;
-    rdfs:comment "idk"@en ;
+:ProfessorRole a rdfs:Class ;
+    rdfs:label "Professor role"@en ;
+    rdfs:comment "A role representing a person acting as a professor."@en ;
     rdfs:subClassOf :Occupation .
 
 :Course a rdfs:Class ;
-    rdfs:label "idk"@en ;
-    rdfs:comment "idk"@en .
+    rdfs:label "Course"@en ;
+    rdfs:comment "An academic course that can be taken by students and taught by professors."@en .
     
 
 # Misc
@@ -56,13 +56,14 @@
     rdfs:range xsd:integer .
 
 :email a rdf:Property ;
-    rdfs:label "email"@en ;
-    rdfs:comment ""@en ;
+    rdfs:label "Email"@en ;
+    rdfs:comment "Electronic mail address for a person or organization."@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range xsd:string .
 
 :firstName a rdf:Property ;
     rdfs:label "First name"@en ;
+    rdfs:comment "A person's given name."@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string .
 
@@ -92,14 +93,14 @@
 
 # University/Student Properties
 :studiesAt a rdf:Property ;
-    rdfs:label "The University where a Person currently studies at"@en ;
-    rdfs:comment ""@en ;
+    rdfs:label "studies at"@en ;
+    rdfs:comment "Indicates the university where a student role studies."@en ;
     rdfs:domain :StudentRole ;
     rdfs:range :University .
 
 :teachesAt a rdf:Property ;
-    rdfs:label ""@en ;
-    rdfs:comment ""@en ;
+    rdfs:label "teaches at"@en ;
+    rdfs:comment "Indicates the university where a professor role teaches."@en ;
     rdfs:domain :ProfessorRole ;
     rdfs:range :University .
 
@@ -110,37 +111,37 @@
     rdfs:range :Occupation .
 
 :yearOfStudy a rdf:Property ;
-    rdfs:label ""@en ;
-    rdfs:comment "relates"@en ;
+    rdfs:label "year of study"@en ;
+    rdfs:comment "The current year of study for a student role, e.g. 1 for first year."@en ;
     rdfs:domain :StudentRole ;
     rdfs:range xsd:integer .
 
 :studyingCourse a rdf:Property ;
-    rdfs:label ""@en ;
-    rdfs:comment "relates"@en ;
+    rdfs:label "studying course"@en ;
+    rdfs:comment "Relates a student role to the course they are studying."@en ;
     rdfs:domain :StudentRole ;
     rdfs:range :Course .
 
 :teachesCourse a rdf:Property ;
-    rdfs:label ""@en ;
-    rdfs:comment "relates"@en ;
+    rdfs:label "teaches course"@en ;
+    rdfs:comment "Relates a professor role to the course they teach."@en ;
     rdfs:domain :ProfessorRole ;
     rdfs:range :Course .
 
 :courseLevel a rdf:Property ;
-    rdfs:label ""@en ;
-    rdfs:comment "relates"@en ;
-    rdfs:domain :course ;
+    rdfs:label "course level"@en ;
+    rdfs:comment "The level of a course (e.g., beginner, intermediate, advanced)."@en ;
+    rdfs:domain :Course ;
     rdfs:range xsd:string .
 
 # Hobbies
 
 :Hobby a rdf:Class ;
-    rdfs:label "hobby"@en ;
-    rdfs:comment "hobby"@en .
+    rdfs:label "Hobby"@en ;
+    rdfs:comment "An activity or interest that a person pursues for pleasure."@en .
 
-:hasHobby a rdf:Class ;
+:hasHobby a rdf:Property ;
     rdfs:label "has hobby"@en ;
-    rdfs:comment "This Person has this hobby"@en ;
+    rdfs:comment "Relates a Person to their hobby."@en ;
     rdfs:domain :Person ;
     rdfs:range :Hobby .
