@@ -1,5 +1,5 @@
-@prefix myvocab: <https://github.com/papichickens/papichickens.github.io/vocab.ttl#> .
-@prefix : <https://github.com/papichickens/papichickens.github.io/data.ttl#> .
+@prefix myvocab: <https://papichickens.github.io/vocab.ttl#> .
+@prefix : <https://papichickens.github.io/data.ttl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Me identifier
