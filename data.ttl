@@ -12,7 +12,7 @@
   myvocab:hasHobby <#football> , <#guitar> ;
   myvocab:hasOccupation <#studentRole> ;
   # in regards to Prof. Pieter Colpaert's current comments around my punctuality :)
-  myvocab:usuallyOnTime true .
+  myvocab:usuallyOnTime "true"^^xsd:boolean .
 
 # University identifier
 <#ugent> a myvocab:University ;
@@ -21,7 +21,7 @@
 # Occupation indentifier
 <#studentRole> a myvocab:StudentRole ;
   myvocab:name "student" ;
-  myvocab:yearOfStudy "5" ;
+  myvocab:yearOfStudy "5"^^xsd:integer ;
   myvocab:studyingCourse <#course> ;
   myvocab:studiesAt <#ugent> .
 
