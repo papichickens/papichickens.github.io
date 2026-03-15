@@ -61,33 +61,32 @@
 
 # Photos
 
-<#alex_honnold> a :Person ;
+<#alex_honnold> a myvocab:Person ;
   myvocab:fullName "Alex J Honnold" ;
   myvocab:firstName "Alex" ;
   myvocab:lastName "Honnold" .
 
-<#fox_sports> a :Organization ;
+<#fox_sports> a myvocab:Organization ;
   myvocab:name "Fox Sports" .
 
-
-<#photo1> a myvocab::Photograph ;
+<#photo1> a myvocab:Photograph ;
   myvocab:name "Photo of Francisco Alves" ;
   myvocab:caption "Photo of Francisco Alves" ;
   myvocab:peopleDepicted <#me> ;
-  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/2/2d/First_Sporting_Clube_de_Portugal_Crest.jpg" .
+  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/2/2d/First_Sporting_Clube_de_Portugal_Crest.jpg"^^xsd:anyURI .
   
 <#photo2> a myvocab:Photograph ;
   myvocab:name "Belgian beer on a table" ;
   myvocab:caption "Belgian beer on a table" ;
   myvocab:location "Patershol, Gent, Belgium" ;
   myvocab:photographer <#lucho_payne> ;
-  myvocab:imageURL "https://www.flickr.com/photos/vamborox/4838531550/in/photolist-8nyJRL-8nvuZP-8nAHgh-8nGGX1-2oT8Gz4-8nDLhz-8nAMFw-8nDQzt-8nGVSh-8nGN3A-8nDAiR-8nAJZG-8nDFVM-8nAHJs-8nxxrn-8nyH9N-8nGQGS-8nyEG5-8nDxV8-8nAuGQ-8nGEZC-8nxypn-8nGT8Y-8nDEDR-8nyCG9-8nvC8M-8nDHhr-8nvvGB-8nDAT2-8nGL1o-8nDLKF-8nvBkv-8nADP3-2p9hXSE-8nDP4X-8DprCe-cYtSoE-8nACTw-8nxAfZ-8nGM1d-8nGSwS-8nvD1R-8nvtBr-8nDQ3t-8nGVgQ-2pTUGAE-CD5wu2-8nUy3D-23PYCMd-8nxr5V" . 
+  myvocab:imageURL "https://www.flickr.com/photos/vamborox/4838531550/in/photolist-8nyJRL-8nvuZP-8nAHgh-8nGGX1-2oT8Gz4-8nDLhz-8nAMFw-8nDQzt-8nGVSh-8nGN3A-8nDAiR-8nAJZG-8nDFVM-8nAHJs-8nxxrn-8nyH9N-8nGQGS-8nyEG5-8nDxV8-8nAuGQ-8nGEZC-8nxypn-8nGT8Y-8nDEDR-8nyCG9-8nvC8M-8nDHhr-8nvvGB-8nDAT2-8nGL1o-8nDLKF-8nvBkv-8nADP3-2p9hXSE-8nDP4X-8DprCe-cYtSoE-8nACTw-8nxAfZ-8nGM1d-8nGSwS-8nvD1R-8nvtBr-8nDQ3t-8nGVgQ-2pTUGAE-CD5wu2-8nUy3D-23PYCMd-8nxr5V"^^xsd:anyURI . 
 
 <#photo3> a myvocab:Photograph ;
   myvocab:name "Picture of the \"Girl with a Pearl Earring\"" ;
   myvocab:caption "Megapixel Girl with a Pearl Earring by Johannes Vermeer" ;
   myvocab:location "den Haag, The Netherlands" ;
-  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg" .
+  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg"^^xsd:anyURI .
 
 <#photo4> a myvocab:Photograph ;
   myvocab:name "Alex Honnold free soloing \"Freerider\"" ;
@@ -95,4 +94,4 @@
   myvocab:peopleDepicted <#alex_honnold> ;
   myvocab:photographer <#fox_sports> ;
   myvocab:location "Yosemite, California" ;
-  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/6/61/Alex_Honnold_El_Capitan_Free_Solo_2.png" .
+  myvocab:imageURL "https://upload.wikimedia.org/wikipedia/commons/6/61/Alex_Honnold_El_Capitan_Free_Solo_2.png"^^xsd:anyURI .
