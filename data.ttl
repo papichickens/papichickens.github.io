@@ -66,6 +66,11 @@
   myvocab:firstName "Alex" ;
   myvocab:lastName "Honnold" .
 
+<#lucho_payne> a myvocab:Person ;
+  myvocab:fullName "Lucho Payne" ;
+  myvocab:firstName "Lucho" ;
+  myvocab:lastName "Payne" .
+
 <#fox_sports> a myvocab:Organization ;
   myvocab:name "Fox Sports" .
 
