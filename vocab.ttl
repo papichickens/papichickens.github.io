@@ -3,13 +3,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <https://papichickens.github.io/vocab.ttl#> .
 
+:Agent a rdfs:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An entity capable of acting, such as a person or organization."@en .
+
 :Person a rdfs:Class ;
     rdfs:label "Person"@en ;
-    rdfs:comment "A human being used in my personal RDF dataset."@en .
+    rdfs:comment "A human being used in my personal RDF dataset."@en ;
+    rdfs:subClassOf :Agent .
 
 :Organization a rdfs:Class ;
     rdfs:label "Organization"@en ;
-    rdfs:comment "An organization"@en .
+    rdfs:comment "An organization"@en ;
+    rdfs:subClassOf :Agent .
 
 :University a rdfs:Class ;
     rdfs:label "University"@en ;
@@ -145,3 +151,40 @@
     rdfs:comment "Relates a Person to their hobby."@en ;
     rdfs:domain :Person ;
     rdfs:range :Hobby .
+
+# Photos
+
+:photographer a rdf:Property ;
+    rdfs:label "photographer"@en ;
+    rdfs:comment "Agent that took this photograph"@en ;
+    rdfs:domain :Photograph ;
+    rdfs:range :Agent .
+
+:caption a rdf:Property ;
+    rdfs:label "caption"@en ;
+    rdfs:comment "Explanation of the contents of something"@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
+:location a rdf:Property ;
+    rdfs:label "location"@en ;
+    rdfs:comment "Location of something"@en ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string .
+
+:peopleDepicted a rdf:Property ;
+    rdfs:label "people depicted"@en ;
+    rdfs:comment "Person or people that are depicted in a photo"@en ;
+    rdfs:range :Person ;
+    rdfs:domain :Photograph .
+
+:imageURL a rdf:Property ;
+    rdfs:label "image URL"@en ;
+    rdfs:comment "URL for location on the web of the image"@en ;
+    rdfs:domain :Photograph ;
+    rdfs:range xsd:anyURI .
+
+:Photograph a rdfs:Class ;
+    rdfs:label "photograph"@en ;
+    rdfs:comment "A picture or likeness obtained by photography"@en .
+
