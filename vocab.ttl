@@ -213,14 +213,8 @@
     rdfs:range rdfs:Resource ;
     owl:equivalentProperty foaf:depicts .
 
-:imageURL a rdf:Property ;
-    rdfs:label "image URL"@en ;
-    rdfs:comment "URL for location on the web of the image"@en ;
-    rdfs:domain :Photograph ;
-    rdfs:range xsd:anyURI .
-
 :Photograph a rdfs:Class ;
     rdfs:label "photograph"@en ;
     rdfs:comment "A picture or likeness obtained by photography"@en ;
     owl:equivalentClass foaf:Image ;
-    rdfs:subClassOf foaf:Document
+    rdfs:subClassOf foaf:Document .

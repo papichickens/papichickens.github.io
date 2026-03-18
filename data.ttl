@@ -82,26 +82,26 @@ _:lucho_payne a myvocab:Person ;
 <#mauritshuis_the_hague> a myvocab:location ;
   myvocab:name "Mauritshuis, The Hague, Netherlands" .
 
+<#patershol_gent> a myvocab:location ;
+  myvocab:name "Patershol, Gent, Belgium" .
+
 <https://upload.wikimedia.org/wikipedia/commons/2/2d/First_Sporting_Clube_de_Portugal_Crest.jpg> a myvocab:Photograph ;
   myvocab:name "Photo of Francisco Alves" ;
   myvocab:caption "Photo of Francisco Alves" ;
   myvocab:location _:unknownLocation ;
   myvocab:depicts <#me> .
-  # myvocab:imageURL <https://upload.wikimedia.org/wikipedia/commons/2/2d/First_Sporting_Clube_de_Portugal_Crest.jpg> .
   
 <https://www.flickr.com/photos/vamborox/4838531550/in/photolist-8nyJRL-8nvuZP-8nAHgh-8nGGX1-2oT8Gz4-8nDLhz-8nAMFw-8nDQzt-8nGVSh-8nGN3A-8nDAiR-8nAJZG-8nDFVM-8nAHJs-8nxxrn-8nyH9N-8nGQGS-8nyEG5-8nDxV8-8nAuGQ-8nGEZC-8nxypn-8nGT8Y-8nDEDR-8nyCG9-8nvC8M-8nDHhr-8nvvGB-8nDAT2-8nGL1o-8nDLKF-8nvBkv-8nADP3-2p9hXSE-8nDP4X-8DprCe-cYtSoE-8nACTw-8nxAfZ-8nGM1d-8nGSwS-8nvD1R-8nvtBr-8nDQ3t-8nGVgQ-2pTUGAE-CD5wu2-8nUy3D-23PYCMd-8nxr5V> a myvocab:Photograph ;
   myvocab:name "Belgian beer on a table" ;
   myvocab:caption "Belgian beer on a table" ;
-  myvocab:location "Patershol, Gent, Belgium" ;
+  myvocab:location <#patershol_gent> ;
   myvocab:photographer _:unknownPhotographer .
-  # myvocab:imageURL <https://www.flickr.com/photos/vamborox/4838531550/in/photolist-8nyJRL-8nvuZP-8nAHgh-8nGGX1-2oT8Gz4-8nDLhz-8nAMFw-8nDQzt-8nGVSh-8nGN3A-8nDAiR-8nAJZG-8nDFVM-8nAHJs-8nxxrn-8nyH9N-8nGQGS-8nyEG5-8nDxV8-8nAuGQ-8nGEZC-8nxypn-8nGT8Y-8nDEDR-8nyCG9-8nvC8M-8nDHhr-8nvvGB-8nDAT2-8nGL1o-8nDLKF-8nvBkv-8nADP3-2p9hXSE-8nDP4X-8DprCe-cYtSoE-8nACTw-8nxAfZ-8nGM1d-8nGSwS-8nvD1R-8nvtBr-8nDQ3t-8nGVgQ-2pTUGAE-CD5wu2-8nUy3D-23PYCMd-8nxr5V> . 
 
 <https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg> a myvocab:Photograph ;
   myvocab:name """Picture of the "Girl with a Pearl Earring" """ ;
   myvocab:caption "Megapixel Girl with a Pearl Earring by Johannes Vermeer" ;
   myvocab:location <#mauritshuis_the_hague> ;
   myvocab:photographer _:unknownPhotographer .
-  # myvocab:imageURL <https://upload.wikimedia.org/wikipedia/commons/0/0f/1665_Girl_with_a_Pearl_Earring.jpg> .
 
 <https://upload.wikimedia.org/wikipedia/commons/6/61/Alex_Honnold_El_Capitan_Free_Solo_2.png> a myvocab:Photograph ;
   myvocab:name """Alex Honnold free soloing "Freerider" """ ;
@@ -109,4 +109,3 @@ _:lucho_payne a myvocab:Person ;
   myvocab:depicts <#alex_honnold> ;
   myvocab:photographer <#fox_sports> ;
   myvocab:location <#el_capitan_freerider> .
-  # myvocab:imageURL <https://upload.wikimedia.org/wikipedia/commons/6/61/Alex_Honnold_El_Capitan_Free_Solo_2.png> .
