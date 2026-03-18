@@ -1,26 +1,33 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <https://papichickens.github.io/vocab.ttl#> .
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 
 :Agent a rdfs:Class ;
     rdfs:label "Agent"@en ;
-    rdfs:comment "An entity capable of acting, such as a person or organization."@en .
+    rdfs:comment "An entity capable of acting, such as a person or organization."@en ;
+    owl:equivalentClass foaf:Agent .
 
 :Person a rdfs:Class ;
     rdfs:label "Person"@en ;
     rdfs:comment "A human being used in my personal RDF dataset."@en ;
-    rdfs:subClassOf :Agent .
+    rdfs:subClassOf :Agent, foaf:Agent ;
+    owl:equivalentClass foaf:Person .
 
 :Organization a rdfs:Class ;
     rdfs:label "Organization"@en ;
     rdfs:comment "An organization"@en ;
-    rdfs:subClassOf :Agent .
+    rdfs:subClassOf :Agent ;
+    owl:equivalentClass foaf:Organization .
 
 :University a rdfs:Class ;
     rdfs:label "University"@en ;
     rdfs:comment "A high-level educational institution in which students study for degrees and academic research is done."@en ;
-    rdfs:subClassOf :Organization . # doubt this is the correct utilization but anyways
+    rdfs:subClassOf :Organization, foaf:Organization .
 
 :Occupation a rdfs:Class ;
     rdfs:label "Occupation"@en ;
@@ -39,14 +46,15 @@
 :Course a rdfs:Class ;
     rdfs:label "Course"@en ;
     rdfs:comment "An academic course that can be taken by students and taught by professors."@en .
-    
+
 
 # Misc
 :name a rdf:Property ;
     rdfs:label "name"@en ;
     rdfs:comment "The name of an entity."@en ;
     rdfs:domain rdfs:Resource ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    owl:equivalentProperty foaf:name .
 
 :comment a rdf:Property ;
     rdfs:label "comment"@en ;
@@ -59,35 +67,43 @@
     rdfs:label "of age"@en ;
     rdfs:comment "Current age of a person in years."@en ;
     rdfs:domain :Person ;
-    rdfs:range xsd:integer .
+    rdfs:range xsd:integer ;
+    owl:equivalentProperty foaf:age .
 
 :email a rdf:Property ;
     rdfs:label "Email"@en ;
     rdfs:comment "Electronic mail address for a person or organization."@en ;
     rdfs:domain rdfs:Resource ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    owl:subPropertyOf foaf:mbox .
 
 :firstName a rdf:Property ;
     rdfs:label "First name"@en ;
-    rdfs:comment "A person's given name."@en ;
+    rdfs:comment "A person's first name."@en ;
     rdfs:domain :Person ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    owl:equivalentProperty foaf:firstName, foaf:givenName .
 
 :fullName a rdf:Property ;
     rdfs:label "full name"@en ;
+    rdfs:comment "A person's full name."@en ;
     rdfs:domain :Person ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf foaf:name .
 
 :lastName a rdf:Property ;
     rdfs:label "Last name"@en ;
+    rdfs:comment "A person's last name."@en ;
     rdfs:domain :Person ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    owl:equivalentProperty foaf:lastName, foaf:familyName.    
 
 :knows a rdf:Property ;
     rdfs:label "knows"@en ;
     rdfs:comment "A Person knows this other Person"@en ;
     rdfs:domain :Person ;
-    rdfs:range :Person .
+    rdfs:range :Person ;
+    owl:equivalentProperty foaf:knows .
 
 # still in regards to Prof. Pieter Colpaert's comments around my punctuality :)
 :usuallyOnTime a rdf:Property ;
@@ -95,7 +111,7 @@
     rdfs:comment "Indicates whether a person is generally punctual for appointments or classes."@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:boolean .
-    
+
 
 # University/Student Properties
 :studiesAt a rdf:Property ;
@@ -144,13 +160,15 @@
 
 :Hobby a rdf:Class ;
     rdfs:label "Hobby"@en ;
-    rdfs:comment "An activity or interest that a person pursues for pleasure."@en .
+    rdfs:comment "An activity or interest that a person pursues for pleasure."@en ;
+    rdfs:subClassOf owl:Thing
 
 :hasHobby a rdf:Property ;
     rdfs:label "has hobby"@en ;
     rdfs:comment "Relates a Person to their hobby."@en ;
     rdfs:domain :Person ;
-    rdfs:range :Hobby .
+    rdfs:range :Hobby ;
+    rdfs:subPropertyOf foaf:topic_interest .
 
 # Photos
 
@@ -158,7 +176,8 @@
     rdfs:label "photographer"@en ;
     rdfs:comment "Agent that took this photograph"@en ;
     rdfs:domain :Photograph ;
-    rdfs:range :Agent .
+    rdfs:range :Agent ;
+    rdfs:subPropertyOf foaf:maker .
 
 :caption a rdf:Property ;
     rdfs:label "caption"@en ;
@@ -166,17 +185,33 @@
     rdfs:domain rdfs:Resource ;
     rdfs:range xsd:string .
 
-:location a rdf:Property ;
+:location a rdfs:Class ;
     rdfs:label "location"@en ;
-    rdfs:comment "Location of something"@en ;
+    rdfs:comment "A specific geographic place."@en ;
     rdfs:domain rdfs:Resource ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+    owl:equivalentClass schema:Place .
 
-:peopleDepicted a rdf:Property ;
-    rdfs:label "people depicted"@en ;
-    rdfs:comment "Person or people that are depicted in a photo"@en ;
-    rdfs:range :Person ;
-    rdfs:domain :Photograph .
+:latitude a rdf:Property ;
+    rdfs:label "latitude"@en ;
+    rdfs:comment "The latitude of a location."@en ;
+    rdfs:domain <#Location> ;
+    rdfs:range xsd:decimal ;
+    owl:equivalentProperty geo:lat .
+
+:longitude a rdf:Property ;
+    rdfs:label "longitude"@en ;
+    rdfs:comment "The longitude of a location."@en ;
+    rdfs:domain <#Location> ;
+    rdfs:range xsd:decimal ;
+    owl:equivalentProperty geo:long .
+
+:depicts a rdf:Property ;
+    rdfs:label "depicts"@en ;
+    rdfs:comment "Relates an image to a thing it depicts."@en ;
+    rdfs:domain :Photograph ;
+    rdfs:range rdfs:Resource ;
+    owl:equivalentProperty foaf:depicts .
 
 :imageURL a rdf:Property ;
     rdfs:label "image URL"@en ;
@@ -186,4 +221,6 @@
 
 :Photograph a rdfs:Class ;
     rdfs:label "photograph"@en ;
-    rdfs:comment "A picture or likeness obtained by photography"@en .
+    rdfs:comment "A picture or likeness obtained by photography"@en ;
+    owl:equivalentClass foaf:Image ;
+    rdfs:subClassOf foaf:Document
