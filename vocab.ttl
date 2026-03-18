@@ -89,7 +89,7 @@
     rdfs:comment "A person's full name."@en ;
     rdfs:domain :Person ;
     rdfs:range xsd:string ;
-    rdfs:subPropertyOf foaf:name .
+    owl:equivalentProperty foaf:name .
 
 :lastName a rdf:Property ;
     rdfs:label "Last name"@en ;
@@ -185,7 +185,13 @@
     rdfs:domain rdfs:Resource ;
     rdfs:range xsd:string .
 
-:location a rdfs:Class ;
+:takenAt a rdf:Property ;
+    rdfs:label "taken at"@en ;
+    rdfs:comment "Relates a photograph to the location where it was taken."@en ;
+    rdfs:domain :Photograph ;
+    rdfs:range :Location .
+
+:Location a rdfs:Class ;
     rdfs:label "location"@en ;
     rdfs:comment "A specific geographic place."@en ;
     rdfs:domain rdfs:Resource ;
@@ -195,14 +201,14 @@
 :latitude a rdf:Property ;
     rdfs:label "latitude"@en ;
     rdfs:comment "The latitude of a location."@en ;
-    rdfs:domain <#Location> ;
+    rdfs:domain :Location ;
     rdfs:range xsd:decimal ;
     owl:equivalentProperty geo:lat .
 
 :longitude a rdf:Property ;
     rdfs:label "longitude"@en ;
     rdfs:comment "The longitude of a location."@en ;
-    rdfs:domain <#Location> ;
+    rdfs:domain :Location ;
     rdfs:range xsd:decimal ;
     owl:equivalentProperty geo:long .
 
