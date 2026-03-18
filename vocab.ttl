@@ -161,7 +161,7 @@
 :Hobby a rdf:Class ;
     rdfs:label "Hobby"@en ;
     rdfs:comment "An activity or interest that a person pursues for pleasure."@en ;
-    rdfs:subClassOf owl:Thing
+    rdfs:subClassOf owl:Thing .
 
 :hasHobby a rdf:Property ;
     rdfs:label "has hobby"@en ;
